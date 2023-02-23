@@ -10,6 +10,7 @@
     'depends': ['stock'],
     'data': [
         'views/reporte_rotacion_abastecimiento_view.xml',
+        'security/ir.model.access.csv',
     ],
     'demo': [],
     'installable': True,
