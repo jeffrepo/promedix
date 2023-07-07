@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+  <t t-name="OrderChangeReceipt" t-inherit="pos_restaurant.OrderChangeReceipt" t-inherit-mode="extension" owl="1">
+    <xpath expr="//div[hasclass('pos-receipt-order-data')]" position="inside">
+        <div>
+            <center>
+
+              <div>
+                Cliente:
+                <t t-if="widget.attributes and widget.attributes.client">
+                  <span t-esc="widget.attributes.client.name"/>
+                </t>
+              </div>
+              <div>
+                Empleado:
+                <t t-if="widget.employee">
+                  <span t-esc="widget.employee.name"/>
+                </t>
+
+              </div>
+            </center>
+        </div>
+    </xpath>
+
+
+    <xpath expr="//div/t[3]/t/div" position="replace">
+      <div class="multiprint-flex">
+          <span t-esc="widget.pos.db.get_product_by_id(change.id).default_code"/>
+          <span t-esc="change.name"/> -<t t-esc="change.qty"/>
+      </div>
+    </xpath>
+
+    <!-- <div class="multiprint-flex">
+        <t t-esc="change.qty"/>
+        <span t-esc="change.name_wrapped[0]"/>
+    </div> -->
+
+
+  </t>
+
+</templates>

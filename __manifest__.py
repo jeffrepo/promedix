@@ -7,11 +7,16 @@
     'description': """ Promedix""",
     'author': 'Aquih',
     'website': 'http://aquih.com/',
-    'depends': ['stock'],
+    'depends': ['stock','point_of_sale'],
     'data': [
         'views/reporte_rotacion_abastecimiento_view.xml',
         'security/ir.model.access.csv',
     ],
+    'assets':{
+        'web.assets_qweb':[
+            'promedix/static/src/xml/**/*.xml',
+        ],
+    },
     'demo': [],
     'installable': True,
 }
